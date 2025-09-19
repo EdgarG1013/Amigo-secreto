@@ -26,13 +26,27 @@ function agregarAmigo() {
 	amigos.push(nombre);
 	ingresarAmigo.value = '';
 	ingresarAmigo.focus();
-
-
-    console.log(amigos);
+    actualizarLista();
 }
 
 // Funcion para actualizar la lista en el HTML
 function actualizarLista() {
 
+    let listaAmigos = document.getElementById('listaAmigos');
+	listaAmigos.innerHTML = '';
 
+	if (amigos.length === 0) {
+
+		let li = document.createElement('li');
+		li.textContent = 'No hay nombres añadidos.';
+		listaAmigos.appendChild(li);
+		return;
+	}
+
+	amigos.forEach((nombre, index) => {
+		let li = document.createElement('li');
+		li.textContent = `${nombre}`;
+		listaAmigos.appendChild(li);
+	});
 }
+
