@@ -50,3 +50,24 @@ function actualizarLista() {
 	});
 }
 
+// Sortea un amigo aleatoriamente y muestra el resultado
+function sortearAmigo() {
+	
+    let resultado = document.getElementById('resultado');
+	resultado.innerHTML = '';
+
+	if (amigos.length === 0) {
+		alert('Añade al menos un nombre antes de sortear.');
+		return;
+	}
+
+	let indice = Math.floor(Math.random() * amigos.length);
+	let ganador = amigos[indice];
+
+	const li = document.createElement('li');
+	li.textContent = `¡El amigo sorteado es: ${ganador}!`;
+	resultado.appendChild(li);
+
+    // Reiniciar la lista después del sorteo
+    listaAmigos.innerHTML = '';
+}
