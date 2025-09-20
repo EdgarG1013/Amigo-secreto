@@ -38,7 +38,7 @@ function actualizarLista() {
 	if (amigos.length === 0) {
 
 		let li = document.createElement('li');
-		li.textContent = 'No hay nombres añadidos.';
+		li.textContent = 'Ingrese los nuevos nombres.';
 		listaAmigos.appendChild(li);
 		return;
 	}
@@ -62,12 +62,25 @@ function sortearAmigo() {
 	}
 
 	let indice = Math.floor(Math.random() * amigos.length);
-	let ganador = amigos[indice];
+	let seleccionado = amigos[indice];
 
 	const li = document.createElement('li');
-	li.textContent = `¡El amigo sorteado es: ${ganador}!`;
+	li.textContent = `¡El amigo secreto sorteado es: ${seleccionado}!`;
 	resultado.appendChild(li);
 
     // Reiniciar la lista después del sorteo
     listaAmigos.innerHTML = '';
+}
+
+// Función: reiniciar la lista
+function resetearLista() {
+    // Vaciar el array de amigos
+    amigos = [];
+
+    // Actualizar la lista de amigos en la UI
+    actualizarLista();
+
+    // Limpiar el resultado del sorteo en la UI
+    let resultado = document.getElementById('resultado');
+    resultado.innerHTML = '';
 }
