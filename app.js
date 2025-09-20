@@ -74,6 +74,7 @@ function sortearAmigo() {
 
 // Función: reiniciar la lista
 function resetearLista() {
+    
     // Vaciar el array de amigos
     amigos = [];
 
